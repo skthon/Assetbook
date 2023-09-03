@@ -1,4 +1,4 @@
-# Laravel Assetbook
+# Laravel Assetbook: (Stay Tuned)
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/skthon/assetbook.svg?style=flat-square)](https://packagist.org/packages/skthon/assetbook)
 [![Total Downloads](https://img.shields.io/packagist/dt/skthon/assetbook.svg?style=flat-square)](https://packagist.org/packages/skthon/assetbook)
