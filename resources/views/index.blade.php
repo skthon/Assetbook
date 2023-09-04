@@ -5,8 +5,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
 </head>
-<body class="bg-gradient-to-r from-gray-500 to-gray-500">
-    <header class="bg-gray-100 sticky top-0">
+<body class="bg-gradient-to-r from-indigo-500 to-blue-500">
+    <header class="bg-white sticky top-0 border-b-2 border-indigo-500">
         <nav class="flex justify-between items-center w-[92%] mx-auto">
             <div class="m-4">
                 <a href="/assets" class="flex justify-between items-center hover:text-gray-500">
@@ -34,8 +34,8 @@
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
                             </svg>
                         </div>
-                        <input type="search" class="w-full p-4 pl-10 pr-12 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-gray-500 focus:border-gray-500" placeholder="Search images..." required>
-                        <button type="submit" class="text-white absolute right-2.5 top-2.5 bg-gray-500 font-medium rounded-lg text-sm px-4 py-2 hover:bg-gray-600 focus:ring-4 focus:outline-none focus:ring-blue-300">
+                        <input type="search" class="w-full p-4 pl-10 pr-12 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500" placeholder="Search images..." required>
+                        <button type="submit" class="text-white absolute right-2.5 top-2.5 bg-blue-700 font-medium rounded-lg text-sm px-4 py-2 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300">
                             Search
                         </button>
                     </form>
@@ -44,10 +44,15 @@
         </nav>
     </header>
 
-    <div class=" grid md:grid-cols-4 lg:grid-cols-6 grid-cols-2 md:gap-8 gap-4 m-8 p-8">
+    <div class="shadow grid md:grid-cols-4 lg:grid-cols-6 grid-cols-2 md:gap-8 gap-4 m-8 p-8">
         @foreach($files as $info)
             <div class="shadow-lg flex bg-white flex-col justify-between h-64 rounded-lg border-1 border-gray-100">
-                <img class="rounded-lg object-scale-down mx-2 h-48" src="{{ asset($info['path']) }}" alt="" />
+                @if(isset($info['mime_type']))
+                    <img class="rounded-lg object-scale-down mx-2 h-48" src="{{ asset($info['path']) }}" alt="" />
+                @else
+                    <video src="{{ asset($info['path']) }}"
+                           class=”rounded-lg object-scale-down mx-2 h-48”></video>
+                @endif
                 <p class="text-center h-8 mx-2 truncate">{{ basename($info['path']) }}</p>
                 <p class="text-center h-8 mx-2 truncate">({{ $info['size'] }} Kb)</p>
             </div>

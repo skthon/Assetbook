@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Facade;
 
 /**
  * @method static array getImages(string $path)
+ * @method static array getVideos(string $path)
  * @method static array getDirectories(string $path)
  */
 class Assetbook extends Facade

@@ -1,8 +1,5 @@
 <?php
 
-/*
- * You can place your custom package configuration in here.
- */
 return [
-
+    'max_size_for_optimization' => '200', // size in kb
 ];
